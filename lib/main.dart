@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:profile/pages/aboutMe_page.dart';
 import 'package:profile/bottomNavigation.dart';
-import 'package:profile/pages/skill_page.dart';
-import 'package:profile/pages/school_page.dart';
+import 'package:profile/pages/auth/login_page.dart'; // Import LoginPage
 
 void main() {
   runApp(MyApp());
@@ -13,10 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Profile',
-      home: Bottomnavigation(),
       debugShowCheckedModeBanner: false,
+      home: LoginPage(), // Tampilkan LoginPage sebagai halaman awal
+      routes: {
+        '/aboutme': (context) => AboutMePage(),
+        '/home': (context) => Bottomnavigation(), // Tambahkan rute untuk navigasi
+      },
     );
   }
 }
-
-

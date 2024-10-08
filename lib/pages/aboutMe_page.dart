@@ -23,7 +23,7 @@ class AboutMePage extends StatelessWidget {
               Positioned(
                 top: 120,
                 child: CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/profile.jpg"),
+                  backgroundImage: AssetImage("assets/images/h.jpeg"),
                   radius: 100,
                 ),
               ),
