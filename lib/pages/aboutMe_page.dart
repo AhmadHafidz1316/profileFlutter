@@ -2,12 +2,21 @@ import 'package:flutter/material.dart';
 import 'package:profile/pages/seeMore_page.dart';
 
 class AboutMePage extends StatelessWidget {
+  const AboutMePage(
+      {super.key,
+      required this.username,
+      required this.sekolah,
+      required this.role,
+      required this.deskripsi});
+
+  final String username;
+  final String sekolah;
+  final String role;
+  final String deskripsi;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: Text("About Me"),
-      // ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -37,11 +46,11 @@ class AboutMePage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Ahmad Hafidz Rino Putra",
+                    username,  // Menggunakan variabel username
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                   ),
-                  Text("Fullstack Developer"),
+                  Text(role),  // Menggunakan variabel role
                   SizedBox(height: 35),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -53,15 +62,14 @@ class AboutMePage extends StatelessWidget {
                             Text("About Me",
                                 style: TextStyle(fontWeight: FontWeight.w500)),
                             SizedBox(height: 8),
-                            Text(
-                                "I am a passionate developer who is always eager to learn and grow in the world of technology, and I am a fullstack developer proficient in programming languages such as JavaScript, Dart, and PHP, along with frameworks like React, Flutter, and Node.js, to build innovative and efficient applications."),
+                            Text(deskripsi),  // Menggunakan variabel deskripsi
                             SizedBox(height: 15),
                             Text(
                               "Education",
                               style: TextStyle(fontWeight: FontWeight.w500),
                             ),
                             SizedBox(height: 8),
-                            Text("Wikrama Vocational HighSchool"),
+                            Text(sekolah),  // Menggunakan variabel sekolah
                           ],
                         ),
                       ),
@@ -72,13 +80,14 @@ class AboutMePage extends StatelessWidget {
             ),
           ),
           ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => SeemorePage()),
-                );
-              },
-              child: Text('see more'))
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SeemorePage()),
+              );
+            },
+            child: Text('see more'),
+          ),
         ],
       ),
     );

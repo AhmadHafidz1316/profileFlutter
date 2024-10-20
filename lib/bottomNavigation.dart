@@ -3,8 +3,20 @@ import 'package:profile/pages/aboutMe_page.dart';
 import 'package:profile/pages/school_page.dart';
 import 'package:profile/pages/skill_page.dart';
 
-
 class Bottomnavigation extends StatefulWidget {
+  final String username;
+  final String sekolah;
+  final String role;
+  final String deskripsi;
+
+  const Bottomnavigation({
+    super.key,
+    required this.username,
+    required this.sekolah,
+    required this.role,
+    required this.deskripsi,
+  });
+
   @override
   State<Bottomnavigation> createState() => _BottomnavigationState();
 }
@@ -12,11 +24,23 @@ class Bottomnavigation extends StatefulWidget {
 class _BottomnavigationState extends State<Bottomnavigation> {
   int _selectedIndex = 0;
 
-  static List<Widget> _pages = <Widget>[
-    AboutMePage(),
-    SkillPage(),
-    SchoolPage(),
-  ];
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    // Inisialisasi _pages dengan data dari widget
+    _pages = [
+      AboutMePage(
+        username: widget.username,
+        sekolah: widget.sekolah,
+        role: widget.role,
+        deskripsi: widget.deskripsi,
+      ),
+       SkillPage(),
+       SchoolPage(),
+    ];
+  }
 
   void _onItemTapped(int index) {
     setState(() {
